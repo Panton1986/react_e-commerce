@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function CartItem (props) {
     const {
         mainId,
@@ -5,10 +8,9 @@ function CartItem (props) {
         price = [],
         displayAssets = [],
         quantity,
-        removeFromCart = Function.prototype,
-        plusQuantity = Function.prototype,
-        minusQuantity = Function.prototype,
     } = props;
+
+    const {removeFromCart, plusQuantity, minusQuantity} = useContext(ShopContext);
 
     return <li className="collection-item avatar"> {displayName}
                 <img src={displayAssets[0].full_background} alt={displayName} className="circle" />
